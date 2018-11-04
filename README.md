@@ -1,4 +1,4 @@
-﻿BitcoinStash Private Testnet
+﻿BitcoinStash Merge Mining Guide
 ===========================
 
 ## Overview
