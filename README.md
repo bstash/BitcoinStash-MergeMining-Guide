@@ -14,8 +14,8 @@ Follow the step belows to merge mine on Bitcoin Stash. Sample code implementatio
 1) Use RPC call getnewaddress() to get a new address for Bitcoin Stash (this will only need to be done once)
 2) Call RPC command createauxblock() with address obtained from step 1). This will make a Bitcoin Stash block with a coinbase payment to the address.
 3) From the JSON output of createauxblock(), use 'auxcoinbasedata' to obtain the data that must be inserted into the script sig of the coinbase in the parent block. To understand how this data is constructed, read the 'Constructing the Auxpow Coinbase Data' section below.
-4) Start solving the parent block until you meet the [encoded target threshold](https://bitcoin.org/en/glossary/nbits) specified by the 'bits' field in the JSON output of createauxblock().  
-5) If the parent block meets the target as defined step 4, construct the auxpow header data. Submit the auxpow header data using RPC command submitauxblock() with first argument being 'hash' from output of createauxblock in step 2), the second argument is the hex string of the auxpow data. Instructions on constructing the auxpow data is shown below. If a valid auxpow header data was submitted, the merge mined block will be submitted on the Bitcoin Stash network. 
+4) Start solving the parent block until you meet the [encoded target threshold](https://bitcoin.org/en/glossary/nbits) specified by the 'bits' field in the JSON output of createauxblock().
+5) If the parent block meets the target as defined step 4, construct the auxpow header data. Submit the auxpow header data using RPC command submitauxblock() with first argument being 'hash' from output of createauxblock in step 2), the second argument is the hex string of the auxpow data. Instructions on constructing the auxpow data is shown below. If a valid auxpow header data was submitted, the merge mined block will be submitted on the Bitcoin Stash network.
 
 
 ## Constructing the Auxpow Header Data
