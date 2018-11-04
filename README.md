@@ -22,22 +22,22 @@ Follow the step belows to merge mine on Bitcoin Stash. Sample code implementatio
 
 Auxpow header data is extra data attached to the BitcoinStash block header that links the block to the the parent block. It is composed from the below data.
 
-Serialized coinbase transaction +
-Hash of the parent block (32 bytes) +
-Merkle branches (can be 0x00, if only transaction in block) +
-Index in the merkle branch (4 bytes, must always be \x00\x00\x00\x00) +
-Chain Merkle branch (4 bytes, can be 0x00, if no other child chain) +
-Index in the chain merkle branch (4 bytes, can be \x00\x00\x00\x00 if no other child chain) +
+Serialized coinbase transaction +  
+Hash of the parent block (32 bytes) +  
+Merkle branches (can be 0x00, if only transaction in block) +  
+Index in the merkle branch (4 bytes, must always be \x00\x00\x00\x00) +  
+Chain Merkle branch (4 bytes, can be 0x00, if no other child chain) +  
+Index in the chain merkle branch (4 bytes, can be \x00\x00\x00\x00 if no other child chain) +  
 Serialized parent block header
 
 ## Constructing the Auxpow Coinbase Data
 
 The auxpow coinbase data is data inserted into the parent block's coinbase to link the parent block to the BitcoinStash block. It is composed from the below data.
 
-Merge Mining Header (4 bytes, must always be \xFA\xBE\x6D\x6D ) +
-Root hash of Merkle Trie containing child chian (32 bytes, set to hash of Bitcoin Stash block if no other child chain) +
-Merkle Trie Size, (4 bytes, set to 1 if no other child chain) +
-Nonce, the nonce and the chain id of the child chain determines a pseudo random slot in the chain merkle trie (4 bytes, can be set to anything if no other child chain) +
+Merge Mining Header (4 bytes, must always be \xFA\xBE\x6D\x6D ) +  
+Root hash of Merkle Trie containing child chian (32 bytes, set to hash of Bitcoin Stash block if no other child chain) +  
+Merkle Trie Size, (4 bytes, set to 1 if no other child chain) +  
+Nonce, the nonce and the chain id of the child chain determines a pseudo random slot in the chain merkle trie (4 bytes, can be set to anything if no other child chain) +  
 Parent Chain Id (4 bytes, set to 210 if Bitcoin is the parent block 209 if Bitcoin Cash is parent block)
 
 ## Stand Alone Mining
